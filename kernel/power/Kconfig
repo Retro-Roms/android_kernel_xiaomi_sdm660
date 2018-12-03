@@ -102,20 +102,20 @@ config PM_STD_PARTITION
 	default ""
 	---help---
 	  The default resume partition is the partition that the suspend-
-	  to-disk implementation will look for a suspended disk image. 
+	  to-disk implementation will look for a suspended disk image.
 
-	  The partition specified here will be different for almost every user. 
+	  The partition specified here will be different for almost every user.
 	  It should be a valid swap partition (at least for now) that is turned
-	  on before suspending. 
+	  on before suspending.
 
 	  The partition specified can be overridden by specifying:
 
-		resume=/dev/<other device> 
+		resume=/dev/<other device>
 
-	  which will set the resume partition to the device specified. 
+	  which will set the resume partition to the device specified.
 
 	  Note there is currently not a way to specify which device to save the
-	  suspended image to. It will simply pick the first available swap 
+	  suspended image to. It will simply pick the first available swap
 	  device.
 
 config PM_SLEEP
@@ -329,3 +329,12 @@ config PM_GENERIC_DOMAINS_OF
 
 config CPU_PM
 	bool
+
+	  Several subsystems (thermal and/or the task scheduler for example)
+	  can leverage information about the energy consumed by CPUs to make
+	  smarter decisions. This config option enables the framework from
+	  which subsystems can access the energy models.
+
+	  The exact usage of the energy model is subsystem-dependent.
+
+	  If in doubt, say N.
