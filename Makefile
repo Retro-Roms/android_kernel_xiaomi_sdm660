@@ -670,10 +670,10 @@ ifdef CONFIG_CC_OPTIMIZE_FOR_SIZE
 KBUILD_CFLAGS	+= -Os
 else
 ifdef CONFIG_PROFILE_ALL_BRANCHES
-KBUILD_CFLAGS	+= -O2
+KBUILD_CFLAGS	+= -O3
 else
 ifeq ($(cc-name),gcc)
-KBUILD_CFLAGS   += -O2
+KBUILD_CFLAGS   += -O3
 endif
 ifeq ($(cc-name),clang)
 KBUILD_CFLAGS   += -O3
